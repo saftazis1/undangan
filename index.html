@@ -52,11 +52,27 @@
             </div>
         </section>
 
+        <section class="py-20 px-8 text-center bg-white/50 border-y border-[#d4a373]/20">
+            <div data-aos="fade-up">
+                <h3 class="text-3xl font-aesthetic mb-8 text-[#d4a373]">Mempelai</h3>
+                <div class="mb-10">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400" class="w-40 h-40 mx-auto rounded-full mb-4 border-4 border-white shadow-lg object-cover">
+                    <h4 class="text-2xl font-aesthetic">M Safta Azis, S.Pd</h4>
+                    <p class="text-sm italic text-gray-500">Putra dari Bapak Indra Karmawan & Ibu Juwiyana</p>
+                </div>
+                <div class="text-4xl font-aesthetic my-4 text-[#d4a373]">&</div>
+                <div class="mt-10">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400" class="w-40 h-40 mx-auto rounded-full mb-4 border-4 border-white shadow-lg object-cover">
+                    <h4 class="text-2xl font-aesthetic">Riskiyatul Khasanah, S.Pd</h4>
+                    <p class="text-sm italic text-gray-500">Putri dari Bapak Ghofur Nurochim & Ibu Nok Riskiyah</p>
+                </div>
+            </div>
+        </section>
+
         <section class="py-20 px-4 text-center">
             <h3 class="text-3xl font-aesthetic mb-6 text-[#d4a373]">Lokasi Acara</h3>
             <div class="rounded-xl overflow-hidden shadow-lg border-4 border-white mb-6">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.593155690584!2d106.82381597402839!3d-6.446250163031938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ea1974914827%3A0xe798a950aa08eae2!2sSasono%20Mulyo%20Depok!5e0!3m2!1sid!2sid!4v1769829288850!5m2!1sid!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.593155690584!2d106.82381597402839!3d-6.446250163031938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ea1974914827%3A0xe798a950aa08eae2!2sSasono%20Mulyo%20Depok!5e0!3m2!1sid!2sid!4v1769829288850!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
             <a href="https://goo.gl/maps/..." target="_blank" class="bg-[#d4a373] text-white px-8 py-2 rounded-full inline-block uppercase text-xs tracking-widest">Petunjuk Jalan</a>
         </section>
     </main>
@@ -65,7 +81,6 @@
     <script>
         AOS.init();
         
-        // SLIDESHOW LOGIC
         const images = [
             'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200',
             'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200',
@@ -82,27 +97,18 @@
         changeBg(); setInterval(changeBg, 5000);
 
         function bukaUndangan() {
-    // 1. Menghilangkan sampul dengan animasi ke atas
-    document.getElementById('sampul').classList.add('opened');
-    
-    // 2. Menampilkan tombol kontrol musik di pojok bawah
-    document.getElementById('music-btn').classList.remove('hidden');
-    
-    // 3. Mengaktifkan scroll halaman kembali
-    document.body.style.overflow = 'auto';
-    
-    // 4. MEMUTAR MUSIK SECARA OTOMATIS
-    const audio = document.getElementById('audio');
-    audio.play().catch(error => {
-        console.log("Autoplay gagal karena kebijakan browser, musik akan menyala setelah interaksi lebih lanjut.");
-    });
-}
+            document.getElementById('sampul').classList.add('opened');
+            document.getElementById('music-btn').classList.remove('hidden');
+            document.body.style.overflow = 'auto';
+            const audio = document.getElementById('audio');
+            audio.play().catch(e => console.log("Musik butuh interaksi user"));
+        }
+
         function toggleMusic() {
             const a = document.getElementById('audio');
             if (a.paused) a.play(); else a.pause();
         }
 
-        // COUNTDOWN
         const target = new Date("Mar 29, 2026 08:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
