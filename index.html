@@ -1,104 +1,73 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Safta & Atul</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan Safta & Atul</title>
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
 
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <style>
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            overflow-x: hidden;
-            background: radial-gradient(circle at top, #1e293b, #020617);
-        }
+<style>
+/* ===== MUSIC BUTTON ANIMATION ===== */
+.music-playing { animation: spin 6s linear infinite; }
+@keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
 
-        .font-aesthetic {
-            font-family: 'Playfair Display', serif;
-        }
+body {
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+    background: radial-gradient(circle at top, #1e293b, #020617);
+}
 
-        /* Background Video */
-        .video-container {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            overflow: hidden;
-        }
+.font-aesthetic { font-family: 'Playfair Display', serif; }
 
-        #bg-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+/* Background Video */
+.video-container { position: fixed; inset: 0; z-index: -2; overflow: hidden; }
+#bg-video { width: 100%; height: 100%; object-fit: cover; }
+.bg-overlay { position: fixed; inset: 0; z-index: -1; background: rgba(0,0,0,0.35); }
 
-        .bg-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background: rgba(0, 0, 0, 0.35);
-        }
+/* Cover */
+#sampul {
+    background-image: url('WhatsApp Image 2026-01-31 at 10.19.05.jpeg');
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s cubic-bezier(0.77,0,0.175,1), opacity 0.8s ease, filter 0.8s ease;
+    border: none;
+}
+#sampul.opened { transform: translateY(-100%) scale(1.05); opacity: 0; filter: blur(4px); }
 
-        /* Cover */
-        #sampul {
-            background-image: url('WhatsApp Image 2026-01-31 at 10.19.05.jpeg');
-            background-size: cover;
-            background-position: center;
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-            border: none;
-        }
+/* Main */
+main { background: transparent; border: none; }
 
-        .opened {
-            transform: translateY(-100%);
-        }
+/* Glass Section */
+section {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(14px);
+    margin: 28px 16px;
+    border-radius: 28px;
+    padding: 48px 24px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
 
-        /* Main */
-        main {
-            background: transparent;
-            border: none;
-        }
-
-        /* Glass Section */
-        section {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(14px);
-            margin: 28px 16px;
-            border-radius: 28px;
-            padding: 48px 24px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Swiper */
-        .swiper {
-            width: 100%;
-            padding-bottom: 50px;
-        }
-
-        .swiper-slide {
-            width: 250px;
-            height: 350px;
-            border-radius: 18px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-        }
-
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 18px;
-        }
-    </style>
+/* Swiper */
+.swiper { width: 100%; padding-bottom: 50px; }
+.swiper-slide {
+    width: 250px; height: 350px;
+    border-radius: 18px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+.swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; }
+</style>
 </head>
 
 <body>
@@ -116,10 +85,8 @@
     <div data-aos="fade-up">
         <p class="uppercase tracking-widest text-xs mb-4 text-white/70">The Wedding Of</p>
         <h1 class="text-6xl font-aesthetic text-[#d4a373] my-6">Safta & Atul</h1>
-
         <p class="italic text-white/70">Kepada Bapak/Ibu/Saudara/i</p>
         <h3 id="nama-tamu" class="text-2xl font-bold text-white mt-2 mb-10">Tamu Undangan</h3>
-
         <button onclick="bukaUndangan()"
             class="bg-[#d4a373] text-white px-10 py-3 rounded-full uppercase tracking-widest text-sm hover:bg-[#bc8a5f] transition">
             Buka Undangan
@@ -128,49 +95,46 @@
 </div>
 
 <!-- Music -->
-<div id="music-btn" class="fixed bottom-5 right-5 z-40 hidden">
-    <button onclick="toggleMusic()" class="bg-[#d4a373] p-3 rounded-full text-white shadow-xl">🎵</button>
-    <audio id="audio" loop>
-        <source src="Kaleb_J_-_Now_I_Know_(mp3.pm).mp3" type="audio/mpeg">
-    </audio>
-</div>
+<button id="music-btn" onclick="toggleMusic()"
+ class="bg-[#d4a373] p-3 rounded-full text-white shadow-xl animate-pulse">
+ 🎵
+</button>
+<audio id="audio" loop>
+    <source src="Kaleb_J_-_Now_I_Know_(mp3.pm).mp3" type="audio/mpeg">
+</audio>
 
 <!-- Main Content -->
 <main class="max-w-md mx-auto pb-20 relative">
 
-    <!-- Hero -->
-    <section class="min-h-screen flex flex-col items-center justify-center text-center">
-        <p class="uppercase tracking-widest text-xs mb-4 text-[#d4a373]">The Wedding Of</p>
-        <h2 class="text-6xl font-aesthetic text-[#d4a373]">Safta & Atul</h2>
-        <p class="mt-4 italic text-xl">29 Maret 2026</p>
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col items-center justify-center text-center">
+    <p class="uppercase tracking-widest text-xs mb-4 text-[#d4a373]">The Wedding Of</p>
+    <h2 class="text-6xl font-aesthetic text-[#d4a373]">Safta & Atul</h2>
+    <p class="mt-4 italic text-xl">29 Maret 2026</p>
 
-        <div id="timer" class="flex gap-6 mt-12 text-[#d4a373]">
-            <div><span id="days" class="text-2xl font-bold">00</span><p class="text-xs">Hari</p></div>
-            <div><span id="hours" class="text-2xl font-bold">00</span><p class="text-xs">Jam</p></div>
-            <div><span id="minutes" class="text-2xl font-bold">00</span><p class="text-xs">Menit</p></div>
-            <div><span id="seconds" class="text-2xl font-bold text-pink-600">00</span><p class="text-xs">Detik</p></div>
-        </div>
-    </section>
+    <div id="timer" class="flex gap-6 mt-12 text-[#d4a373]">
+        <div><span id="days" class="text-2xl font-bold">00</span><p class="text-xs">Hari</p></div>
+        <div><span id="hours" class="text-2xl font-bold">00</span><p class="text-xs">Jam</p></div>
+        <div><span id="minutes" class="text-2xl font-bold">00</span><p class="text-xs">Menit</p></div>
+        <div><span id="seconds" class="text-2xl font-bold text-pink-600">00</span><p class="text-xs">Detik</p></div>
+    </div>
+</section>
 
-    <!-- Gallery -->
-    <!-- Mempelai -->
+<!-- Mempelai Section -->
 <section data-aos="fade-up" class="text-center">
     <h3 class="text-3xl font-aesthetic mb-10 text-[#d4a373]">Mempelai</h3>
-
     <div class="mb-10">
         <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400"
-            class="w-40 h-40 mx-auto rounded-full mb-4 shadow-xl object-cover">
+             class="w-40 h-40 mx-auto rounded-full mb-4 shadow-xl object-cover">
         <h4 class="text-2xl font-aesthetic">M Safta Azis, S.Pd</h4>
         <p class="text-sm italic text-gray-600">
             Putra dari Bapak Indra Karmawan & Ibu Juwiyana
         </p>
     </div>
-
     <div class="text-4xl font-aesthetic my-6 text-[#d4a373]">&</div>
-
     <div>
         <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400"
-            class="w-40 h-40 mx-auto rounded-full mb-4 shadow-xl object-cover">
+             class="w-40 h-40 mx-auto rounded-full mb-4 shadow-xl object-cover">
         <h4 class="text-2xl font-aesthetic">Riskiyatul Khasanah, S.Pd</h4>
         <p class="text-sm italic text-gray-600">
             Putri dari Bapak Ghofur Nurochim & Ibu Nok Riskiyah
@@ -181,52 +145,38 @@
 <!-- Lokasi -->
 <section data-aos="fade-up" class="text-center">
     <h3 class="text-3xl font-aesthetic mb-6 text-[#d4a373]">Lokasi Acara</h3>
-
     <div class="rounded-2xl overflow-hidden shadow-xl mb-6">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.887841126639!2d106.8335035!3d-6.4084534"
-            width="100%" height="260" style="border:0;" loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.887841126639!2d106.8335035!3d-6.4084534"
+            width="100%" height="260" style="border:0;" loading="lazy"></iframe>
     </div>
-
     <a href="https://maps.app.goo.gl/GaRwo7CbZKdFFJss7" target="_blank"
-        class="bg-[#d4a373] text-white px-8 py-2 rounded-full uppercase text-xs tracking-widest shadow-md">
+       class="bg-[#d4a373] text-white px-8 py-2 rounded-full uppercase text-xs tracking-widest shadow-md">
         Petunjuk Jalan
     </a>
 </section>
 
-<!-- RSVP -->
+<!-- RSVP & Ucapan -->
 <section data-aos="fade-up" class="text-center">
     <h3 class="text-3xl font-aesthetic mb-4 text-[#d4a373]">Konfirmasi Kehadiran</h3>
     <p class="mb-8 text-sm italic text-gray-600">
         Mohon konfirmasi kehadiran Anda melalui WhatsApp
     </p>
-
     <a href="https://wa.me/6287888111537?text=Halo%20Safta%20&%20Atul,%20saya%20ingin%20konfirmasi%20kehadiran."
-        target="_blank"
-        class="inline-block bg-[#25D366] text-white px-10 py-3 rounded-full font-bold uppercase text-xs tracking-widest shadow-lg">
-        Konfirmasi via WhatsApp
+       target="_blank"
+       class="inline-block bg-[#25D366] text-white px-10 py-3 rounded-full font-bold uppercase text-xs tracking-widest shadow-lg">
+       Konfirmasi via WhatsApp
     </a>
-</section>
 
-<!-- Ucapan -->
-<section data-aos="fade-up">
-    <h3 class="text-3xl font-aesthetic mb-6 text-center text-[#d4a373]">
-        Ucapan & Doa
-    </h3>
-
-    <div class="bg-white/60 p-6 rounded-2xl mb-8">
+    <div class="bg-white/60 p-6 rounded-2xl mb-8 mt-10">
         <input id="namaTamu" type="text"
-            class="w-full p-3 rounded-lg mb-4 outline-none text-sm"
-            placeholder="Nama Anda">
-
+               class="w-full p-3 rounded-lg mb-4 outline-none text-sm"
+               placeholder="Nama Anda">
         <textarea id="pesanTamu"
-            class="w-full p-3 rounded-lg mb-4 h-24 outline-none text-sm"
-            placeholder="Tulis ucapan..."></textarea>
-
+                  class="w-full p-3 rounded-lg mb-4 h-24 outline-none text-sm"
+                  placeholder="Tulis ucapan..."></textarea>
         <button onclick="tambahPesan()"
-            class="w-full bg-[#d4a373] text-white py-3 rounded-lg uppercase text-xs tracking-widest">
-            Kirim Ucapan
+                class="w-full bg-[#d4a373] text-white py-3 rounded-lg uppercase text-xs tracking-widest">
+                Kirim Ucapan
         </button>
     </div>
 
@@ -240,25 +190,29 @@
     </div>
 </section>
 
-    <section>
-        <h3 class="text-3xl font-aesthetic mb-8 text-center text-[#d4a373]">Momen Bahagia</h3>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500"></div>
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500"></div>
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500"></div>
-            </div>
-            <div class="swiper-pagination"></div>
+<!-- Gallery Swiper -->
+<section>
+    <h3 class="text-3xl font-aesthetic mb-8 text-center text-[#d4a373]">Momen Bahagia</h3>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500"></div>
+            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500"></div>
+            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500"></div>
         </div>
-    </section>
-
-</main>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
 
 <!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
 <script>
+// AOS init
 AOS.init();
 
+// Swiper init
 new Swiper(".mySwiper", {
     effect: "cards",
     grabCursor: true,
@@ -267,54 +221,93 @@ new Swiper(".mySwiper", {
     pagination: { el: ".swiper-pagination", clickable: true },
 });
 
-function bukaUndangan() {
-    document.getElementById('sampul').classList.add('opened');
-    document.getElementById('music-btn').classList.remove('hidden');
-    document.getElementById('audio').play();
-}
-
-function toggleMusic() {
-    const a = document.getElementById('audio');
-    a.paused ? a.play() : a.pause();
-}
-
-const target = new Date("Mar 29, 2026 08:00:00").getTime();
-setInterval(() => {
-    const diff = target - new Date().getTime();
-    if (diff > 0) {
-        days.innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-        hours.innerText = Math.floor(diff / (1000 * 60 * 60) % 24);
-        minutes.innerText = Math.floor(diff / (1000 * 60) % 60);
-        seconds.innerText = Math.floor(diff / 1000 % 60);
-    }
-}, 1000);
-
+// Nama Tamu dari URL
 const params = new URLSearchParams(window.location.search);
 if (params.get('to')) {
     document.getElementById('nama-tamu').innerText = decodeURIComponent(params.get('to'));
 }
-</script>
-    <script>
+
+// Countdown
+const days = document.getElementById('days');
+const hours = document.getElementById('hours');
+const minutes = document.getElementById('minutes');
+const seconds = document.getElementById('seconds');
+const target = new Date("Mar 29, 2026 08:00:00").getTime();
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = target - now;
+    if (diff > 0) {
+        days.innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        hours.innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        minutes.innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        seconds.innerText = Math.floor((diff % (1000 * 60)) / 1000);
+    }
+}, 1000);
+
+// Buka Undangan
+function bukaUndangan() {
+    const sampul = document.getElementById('sampul');
+    const audio = document.getElementById('audio');
+
+    sampul.classList.add('opened');
+    audio.play().catch(() => {});
+
+    setTimeout(() => { sampul.style.display = 'none'; }, 1300);
+}
+
+// Toggle Music
+function toggleMusic() {
+    const audio = document.getElementById('audio');
+    const btn = document.getElementById('music-btn');
+    if (audio.paused) {
+        audio.play();
+        btn.classList.add('music-playing');
+    } else {
+        audio.pause();
+        btn.classList.remove('music-playing');
+    }
+}
+
+// Tambah Ucapan
 function tambahPesan() {
     const nama = document.getElementById('namaTamu').value;
     const pesan = document.getElementById('pesanTamu').value;
-    const list = document.getElementById('daftarUcapan');
-
     if (!nama || !pesan) return;
 
+    const list = document.getElementById('daftarUcapan');
     const div = document.createElement('div');
     div.className = "bg-white/60 p-4 rounded-xl border-l-4 border-[#d4a373]";
-    div.innerHTML = `
-        <p class="font-bold text-[#d4a373] text-sm">${nama}</p>
-        <p class="text-sm italic text-gray-600">${pesan}</p>
-    `;
-
+    div.innerHTML = `<p class="font-bold text-[#d4a373] text-sm">${nama}</p>
+                     <p class="text-sm italic text-gray-600">${pesan}</p>`;
     list.prepend(div);
-    namaTamu.value = "";
-    pesanTamu.value = "";
-}
-</script>
 
+    document.getElementById('namaTamu').value = "";
+    document.getElementById('pesanTamu').value = "";
+}
+
+// Firebase Realtime
+const firebaseConfig = {
+  apiKey: "API_KEY_KAMU",
+  authDomain: "undangan-safta-atul.firebaseapp.com",
+  databaseURL: "https://undangan-safta-atul-default-rtdb.firebaseio.com",
+  projectId: "undangan-safta-atul",
+  storageBucket: "undangan-safta-atul.appspot.com",
+  messagingSenderId: "1234567890",
+  appId: "1:1234567890:web:abcdef123456"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const ucapanRef = db.ref("ucapan");
+ucapanRef.on("child_added", snapshot => {
+    const data = snapshot.val();
+    const wadah = document.getElementById('daftarUcapan');
+    const div = document.createElement('div');
+    div.className = "bg-white/50 p-4 rounded-lg border-l-4 border-[#d4a373]";
+    div.innerHTML = `<p class="font-bold text-[#d4a373] text-sm">${data.nama}</p>
+                     <p class="text-sm italic text-gray-600">${data.pesan}</p>`;
+    wadah.insertBefore(div, wadah.firstChild);
+});
+</script>
 
 </body>
 </html>
