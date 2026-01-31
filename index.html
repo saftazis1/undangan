@@ -82,13 +82,21 @@
         changeBg(); setInterval(changeBg, 5000);
 
         function bukaUndangan() {
-            document.getElementById('sampul').classList.add('opened');
-            document.getElementById('music-btn').classList.remove('hidden');
-            document.body.style.overflow = 'auto';
-            const audio = document.getElementById('audio');
-            audio.play().catch(e => console.log("Musik butuh interaksi user"));
-        }
-
+    // 1. Menghilangkan sampul dengan animasi ke atas
+    document.getElementById('sampul').classList.add('opened');
+    
+    // 2. Menampilkan tombol kontrol musik di pojok bawah
+    document.getElementById('music-btn').classList.remove('hidden');
+    
+    // 3. Mengaktifkan scroll halaman kembali
+    document.body.style.overflow = 'auto';
+    
+    // 4. MEMUTAR MUSIK SECARA OTOMATIS
+    const audio = document.getElementById('audio');
+    audio.play().catch(error => {
+        console.log("Autoplay gagal karena kebijakan browser, musik akan menyala setelah interaksi lebih lanjut.");
+    });
+}
         function toggleMusic() {
             const a = document.getElementById('audio');
             if (a.paused) a.play(); else a.pause();
