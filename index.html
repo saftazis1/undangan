@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Digital - Premium</title>
+    <title>Undangan Pernikahan Safta & Atul</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -11,60 +11,47 @@
     
     <style>
         :root {
-            --primary: #d4a373; /* Warna Gold/Cream */
+            --primary: #d4a373;
             --secondary: #fefae0;
         }
-        body { 
-    font-family: 'Cormorant Garamond', serif; 
-    overflow-x: hidden;
-}
+        body { font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
+        .font-aesthetic { font-family: 'Playfair Display', serif; }
 
-/* Container untuk background yang berganti */
-#bg-slideshow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2; /* Di paling belakang */
-    background-size: cover;
-    background-position: center;
-    transition: background-image 2s ease-in-out; /* Efek transisi halus */
-}
-
-/* Layer overlay agar teks tetap mudah dibaca */
-.bg-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: rgba(255, 255, 255, 0.4); /* Warna putih transparan */
-}
-        <div id="bg-slideshow"></div>
-<div class="bg-overlay"></div>
-}
-        
-        /* Sampul Overlay */
-        #sampul {
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        /* CSS Slideshow Background */
+        #bg-slideshow {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 2s ease-in-out;
         }
+
+        /* Overlay agar teks tetap terbaca jelas */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: rgba(255, 255, 255, 0.6); 
+        }
+
+        /* Animasi Sampul */
+        #sampul { transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
         .opened { transform: translateY(-100%); }
-        
-        /* Animasi Bunga Sederhana */
-        .flower { position: absolute; opacity: 0.3; pointer-events: none; }
     </style>
 </head>
 <body class="bg-[#faf9f6] text-[#555]">
+
+    <div id="bg-slideshow"></div>
+    <div class="bg-overlay"></div>
 
     <div id="sampul" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center text-center p-6 border-8 border-double border-[#d4a373] m-2">
         <div data-aos="fade-up">
             <p class="uppercase tracking-[0.3em] text-xs mb-4">The Wedding Of</p>
             <h1 class="text-6xl font-aesthetic text-[#d4a373] my-6">Safta & Atul</h1>
-            <div class="w-24 h-[1px] bg-[#d4a373] mx-auto mb-6"></div>
             <p class="italic mb-10 text-gray-400 text-lg">Kepada Bapak/Ibu/Saudara/i <br> <span class="font-bold text-gray-700">Tamu Undangan</span></p>
-            
             <button onclick="bukaUndangan()" class="bg-[#d4a373] text-white px-10 py-3 rounded-full hover:bg-[#bc8a5f] transition-all tracking-widest text-sm uppercase flex items-center gap-3 mx-auto shadow-lg">
                 Buka Undangan
             </button>
@@ -78,60 +65,72 @@
             </svg>
         </button>
         <audio id="audio" loop>
-            <source src="https://drive.google.com/file/d/15aSR-LV3JfEop5LrKDaarNqEVxW1tYkK/view?usp=drive_link" type="audio/mpeg">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
         </audio>
     </div>
 
-    <main class="max-w-md mx-auto bg-white shadow-inner pb-20">
+    <main class="max-w-md mx-auto bg-white/70 shadow-inner pb-20 backdrop-blur-sm">
         
         <section class="h-screen flex flex-col items-center justify-center text-center px-4 relative">
             <div data-aos="fade-down" data-aos-duration="1500">
                 <p class="uppercase tracking-widest text-xs mb-4">Save the Date</p>
-                <h2 class="text-5xl font-aesthetic text-[#d4a373]">Safta & Pasangan</h2>
-                <p class="mt-4 italic">31 Januari 2026</p>
+                <h2 class="text-5xl font-aesthetic text-[#d4a373]">Safta & Atul</h2>
+                <p class="mt-4 italic text-xl">Minggu, 29 Maret 2026</p>
             </div>
             <div id="timer" class="flex gap-4 mt-12 text-[#d4a373]" data-aos="zoom-in">
-                <div class="flex flex-col"><span id="days" class="text-3xl font-bold">00</span><span class="text-xs uppercase">Hari</span></div>
-                <div class="flex flex-col"><span id="hours" class="text-3xl font-bold">00</span><span class="text-xs uppercase">Jam</span></div>
-                <div class="flex flex-col"><span id="minutes" class="text-3xl font-bold">00</span><span class="text-xs uppercase">Menit</span></div>
+                <div class="flex flex-col text-center"><span id="days" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase">Hari</span></div>
+                <div class="flex flex-col text-center"><span id="hours" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase">Jam</span></div>
+                <div class="flex flex-col text-center"><span id="minutes" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase">Menit</span></div>
             </div>
         </section>
 
-        <section class="py-20 px-8 text-center bg-[#faf9f6]">
+        <section class="py-20 px-8 text-center bg-white/50">
             <div data-aos="fade-up">
                 <h3 class="text-3xl font-aesthetic mb-8 text-[#d4a373]">Mempelai</h3>
                 <div class="mb-10">
-                    <div class="w-40 h-40 bg-gray-200 mx-auto rounded-full mb-4 border-4 border-white shadow-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400" alt="Mempelai" class="w-full h-full object-cover">
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400" class="w-40 h-40 mx-auto rounded-full mb-4 border-4 border-white shadow-lg object-cover">
                     <h4 class="text-2xl font-aesthetic">M Safta Azis, S.Pd</h4>
-                    <p class="text-sm italic mt-2">Putra dari Bapak Indra Karmawan & Ibu Juwiyana</p>
+                    <p class="text-sm italic text-gray-500">Putra dari Bapak Indra Karmawan & Ibu Juwiyana</p>
                 </div>
                 <div class="text-4xl font-aesthetic my-4 text-[#d4a373]">&</div>
                 <div class="mt-10">
-                    <div class="w-40 h-40 bg-gray-200 mx-auto rounded-full mb-4 border-4 border-white shadow-lg overflow-hidden">
-                        <img src="https://drive.google.com/file/d/1T8ds8ojL7Y9Xz2enI_Q8k83-WqzG3LpB/view?usp=drive_link" alt="Mempelai" class="w-full h-full object-cover">
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400" class="w-40 h-40 mx-auto rounded-full mb-4 border-4 border-white shadow-lg object-cover">
                     <h4 class="text-2xl font-aesthetic">Riskiyatul Khasanah, S.Pd</h4>
-                    <p class="text-sm italic mt-2">Putri dari Bapak Ghofur Nurochim & Ibu Nok riskiyah</p>
+                    <p class="text-sm italic text-gray-500">Putri dari Bapak Ghofur Nurochim & Ibu Nok Riskiyah</p>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 px-4 text-center">
+        <section class="py-20 px-4 text-center bg-white">
             <h3 class="text-3xl font-aesthetic mb-6 text-[#d4a373]" data-aos="fade-up">Lokasi Acara</h3>
             <div class="rounded-xl overflow-hidden shadow-lg border-4 border-white mb-6" data-aos="zoom-in">
-                <iframe src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.593155690584!2d106.82381597402839!3d-6.446250163031938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ea1974914827%3A0xe798a950aa08eae2!2sSasono%20Mulyo%20Depok!5e0!3m2!1sid!2sid!4v1769829288850!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">< width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.81956135000001!3d-6.194741399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTEnNDEuMSJTIDEwNsKwNDknMTAuNCJF!5e0!3m2!1sid!2sid!4v1640000000000!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://goo.gl/maps/..." target="_blank" class="inline-block bg-[#d4a373] text-white px-6 py-2 rounded-full text-sm uppercase tracking-wider">Buka Google Maps</a>
+            <a href="https://goo.gl/maps/..." target="_blank" class="inline-block bg-[#d4a373] text-white px-8 py-3 rounded-full text-sm uppercase tracking-widest shadow-md transition-transform hover:scale-105">Buka Petunjuk Jalan</a>
         </section>
-
     </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
+        // 1. LOGIKA SLIDESHOW BACKGROUND
+        const images = [
+            'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200',
+            'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200',
+            'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200'
+        ];
+        let currentIndex = 0;
+        const bgElement = document.getElementById('bg-slideshow');
+
+        function changeBackground() {
+            bgElement.style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+        changeBackground(); // Jalankan pertama kali
+        setInterval(changeBackground, 5000); // Ganti tiap 5 detik
+
+        // 2. FUNGSI BUKA UNDANGAN & MUSIK
         function bukaUndangan() {
             document.getElementById('sampul').classList.add('opened');
             document.getElementById('music-btn').classList.remove('hidden');
@@ -141,40 +140,20 @@
 
         function toggleMusic() {
             const audio = document.getElementById('audio');
-            if (audio.paused) audio.play();
-            else audio.pause();
+            if (audio.paused) audio.play(); else audio.pause();
         }
 
-        // Countdown Logic
+        // 3. LOGIKA COUNTDOWN
         const targetDate = new Date("Mar 29, 2026 08:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const diff = targetDate - now;
-            
-            document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            if (diff > 0) {
+                document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            }
         }, 1000);
-        // Daftar gambar yang akan berganti otomatis
-const images = [
-    'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200',
-    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200',
-    'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200'
-];
-
-let currentIndex = 0;
-const bgElement = document.getElementById('bg-slideshow');
-
-function changeBackground() {
-    bgElement.style.backgroundImage = `url('${images[currentIndex]}')`;
-    currentIndex = (currentIndex + 1) % images.length;
-}
-
-// Jalankan pertama kali
-changeBackground();
-
-// Ganti gambar setiap 5 detik (5000ms)
-setInterval(changeBackground, 5000);
     </script>
 </body>
 </html>
