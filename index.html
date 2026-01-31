@@ -13,7 +13,6 @@
         body { font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
         .font-aesthetic { font-family: 'Playfair Display', serif; }
         
-        /* Video Background (Belakang Sekali) */
         .video-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; }
         #bg-video { width: 100%; height: 100%; object-fit: cover; }
         .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: rgba(0, 0, 0, 0.2); }
@@ -21,7 +20,6 @@
         #sampul { transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
         .opened { transform: translateY(-100%); }
 
-        /* Container Utama (Yang tampil di HP) */
         main {
             background-image: url('pexels-nguy-n-ti-n-th-nh-2150376175-34723615.jpg');
             background-size: cover;
@@ -31,7 +29,6 @@
             border-right: 1px solid #d4a373;
         }
 
-        /* Glassmorphism Effect pada tiap Section */
         section {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(5px);
@@ -57,18 +54,14 @@
 
     <div id="sampul" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center text-center p-6 border-8 border-double border-[#d4a373] m-2">
         <div data-aos="fade-up">
-    <p class="uppercase tracking-widest text-xs mb-4 text-gray-500">The Wedding Of</p>
-    <h1 class="text-6xl font-aesthetic text-[#d4a373] my-6">Safta & Atul</h1>
-    
-    <div id="display-tamu" class="mb-10">
-        <p class="italic text-gray-400 text-lg">Kepada Bapak/Ibu/Saudara/i</p>
-        <h3 id="nama-tamu" class="text-2xl font-bold text-gray-800 mt-2">Tamu Undangan</h3>
-    </div>
+            <p class="uppercase tracking-widest text-xs mb-4 text-gray-500">The Wedding Of</p>
+            <h1 class="text-6xl font-aesthetic text-[#d4a373] my-6">Safta & Atul</h1>
+            
+            <div id="display-tamu" class="mb-10">
+                <p class="italic text-gray-400 text-lg">Kepada Bapak/Ibu/Saudara/i</p>
+                <h3 id="nama-tamu" class="text-2xl font-bold text-gray-800 mt-2">Tamu Undangan</h3>
+            </div>
 
-    <button onclick="bukaUndangan()" class="bg-[#d4a373] text-white px-10 py-3 rounded-full shadow-lg uppercase tracking-widest text-sm hover:bg-[#bc8a5f] transition-all">Buka Undangan</button>
-</div>
-
-<span id="nama-tamu" class="font-bold text-gray-700">Tamu Undangan</span>
             <button onclick="bukaUndangan()" class="bg-[#d4a373] text-white px-10 py-3 rounded-full shadow-lg uppercase tracking-widest text-sm hover:bg-[#bc8a5f] transition-all">Buka Undangan</button>
         </div>
     </div>
@@ -83,7 +76,6 @@
     </div>
 
     <main class="max-w-md mx-auto shadow-2xl pb-20 relative">
-        
         <section class="min-h-screen flex flex-col items-center justify-center text-center relative border-none !bg-transparent !backdrop-blur-none">
             <div data-aos="fade-down" data-aos-duration="1500">
                 <p class="uppercase tracking-widest text-xs mb-4 text-[#d4a373]">The Wedding Of</p>
@@ -130,9 +122,9 @@
         <section data-aos="fade-up" class="text-center">
             <h3 class="text-3xl font-aesthetic mb-6 text-[#d4a373]">Lokasi Acara</h3>
             <div class="rounded-xl overflow-hidden shadow-lg border-4 border-white mb-6">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d106.0!3d-6.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDAnMDAuMCJTIDEwNsKwMDAnMDAuMCJF!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid9" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.887841126639!2d106.8335035!3d-6.4084534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eb6163359d99%3A0x600b65636068202b!2sSasono%20Mulyo%20Depok!5e0!3m2!1sid!2sid!4v1706692000000" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://goo.gl/maps/Uv392m8XFf7GvM3N8" target="_blank" class="bg-[#d4a373] text-white px-8 py-2 rounded-full inline-block uppercase text-xs tracking-widest">Petunjuk Jalan</a>
+            <a href="https://goo.gl/maps/Uv392m8XFf7GvM3N8" target="_blank" class="bg-[#d4a373] text-white px-8 py-2 rounded-full inline-block uppercase text-xs tracking-widest shadow-md">Petunjuk Jalan</a>
         </section>
 
         <section data-aos="fade-up" class="text-center">
@@ -177,7 +169,7 @@
             document.getElementById('music-btn').classList.remove('hidden');
             document.body.style.overflow = 'auto';
             const audio = document.getElementById('audio');
-            audio.play().catch(e => console.log("Musik aktif"));
+            audio.play().catch(e => console.log("Musik butuh interaksi"));
         }
 
         function toggleMusic() {
@@ -211,24 +203,17 @@
                 document.getElementById('pesanTamu').value = "";
             }
         }
-        // Fungsi untuk membersihkan dan menampilkan nama tamu dari URL
-function aturNamaTamu() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const nama = urlParams.get('to');
-    const elemenNama = document.getElementById('nama-tamu');
 
-    if (nama) {
-        // Mengganti teks dengan nama dari URL parameter ?to=Nama
-        elemenNama.innerText = decodeURIComponent(nama);
-    } else {
-        // Jika tidak ada parameter ?to=, tetap tampilkan "Tamu Undangan"
-        elemenNama.innerText = "Tamu Undangan";
-    }
-}
-
-// Jalankan fungsi saat halaman dimuat
-aturNamaTamu();
-}
+        // Logika Nama Tamu
+        function aturNamaTamu() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nama = urlParams.get('to');
+            const elemenNama = document.getElementById('nama-tamu');
+            if (nama) {
+                elemenNama.innerText = decodeURIComponent(nama);
+            }
+        }
+        aturNamaTamu();
     </script>
 </body>
 </html>
