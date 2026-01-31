@@ -11,70 +11,52 @@
         body { font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
         .font-aesthetic { font-family: 'Playfair Display', serif; }
         #bg-slideshow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-size: cover; background-position: center; transition: background-image 2s ease-in-out; }
-        .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: rgba(255, 255, 255, 0.6); }
+        .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: rgba(255, 255, 255, 0.5); }
         #sampul { transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
         .opened { transform: translateY(-100%); }
     </style>
 </head>
-<body class="bg-[#faf9f6] text-[#555]">
+<body class="bg-white">
 
     <div id="bg-slideshow"></div>
     <div class="bg-overlay"></div>
 
     <div id="sampul" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center text-center p-6 border-8 border-double border-[#d4a373] m-2">
         <div data-aos="fade-up">
-            <p class="uppercase tracking-[0.3em] text-xs mb-4">The Wedding Of</p>
+            <p class="uppercase tracking-widest text-xs mb-4">The Wedding Of</p>
             <h1 class="text-6xl font-aesthetic text-[#d4a373] my-6">Safta & Atul</h1>
             <p class="italic mb-10 text-gray-400 text-lg">Kepada Bapak/Ibu/Saudara/i <br> <span class="font-bold text-gray-700">Tamu Undangan</span></p>
-            <button onclick="bukaUndangan()" class="bg-[#d4a373] text-white px-10 py-3 rounded-full hover:bg-[#bc8a5f] transition-all tracking-widest text-sm uppercase shadow-lg">Buka Undangan</button>
+            <button onclick="bukaUndangan()" class="bg-[#d4a373] text-white px-10 py-3 rounded-full shadow-lg uppercase tracking-widest text-sm">Buka Undangan</button>
         </div>
     </div>
 
     <div id="music-btn" class="fixed bottom-5 right-5 z-40 hidden">
-        <button onclick="toggleMusic()" class="bg-[#d4a373]/80 p-3 rounded-full text-white shadow-xl backdrop-blur-sm">
-            <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
+        <button onclick="toggleMusic()" class="bg-[#d4a373] p-3 rounded-full text-white shadow-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
         </button>
         <audio id="audio" loop>
             <source src="Kaleb_J_-_Now_I_Know_(mp3.pm).mp3" type="audio/mpeg">
         </audio>
     </div>
 
-    <main class="max-w-md mx-auto bg-white/70 shadow-inner pb-20 backdrop-blur-sm">
+    <main class="max-w-md mx-auto bg-white/80 backdrop-blur-sm shadow-2xl pb-20">
         <section class="h-screen flex flex-col items-center justify-center text-center px-4">
-            <div data-aos="fade-down" data-aos-duration="1500">
-                <p class="uppercase tracking-widest text-xs mb-4">Save the Date</p>
+            <div data-aos="fade-down">
                 <h2 class="text-5xl font-aesthetic text-[#d4a373]">Safta & Atul</h2>
-                <p class="mt-4 italic text-xl">Minggu, 29 Maret 2026</p>
+                <p class="mt-4 italic text-xl">29 Maret 2026</p>
             </div>
-            <div id="timer" class="flex gap-4 mt-12 text-[#d4a373]" data-aos="zoom-in">
-                <div class="flex flex-col text-center"><span id="days" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase font-bold">Hari</span></div>
-                <div class="flex flex-col text-center"><span id="hours" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase font-bold">Jam</span></div>
-                <div class="flex flex-col text-center"><span id="minutes" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase font-bold">Menit</span></div>
-            </div>
-        </section>
-
-        <section class="py-20 px-8 text-center bg-white/50">
-            <div data-aos="fade-up">
-                <h3 class="text-3xl font-aesthetic mb-8 text-[#d4a373]">Mempelai</h3>
-                <div class="mb-10">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400" class="w-40 h-40 mx-auto rounded-full mb-4 border-4 border-white shadow-lg object-cover">
-                    <h4 class="text-2xl font-aesthetic">M Safta Azis, S.Pd</h4>
-                    <p class="text-sm italic text-gray-500">Putra dari Bapak Indra Karmawan & Ibu Juwiyana</p>
-                </div>
-                <div class="text-4xl font-aesthetic my-4 text-[#d4a373]">&</div>
-                <div class="mt-10">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400" class="w-40 h-40 mx-auto rounded-full mb-4 border-4 border-white shadow-lg object-cover">
-                    <h4 class="text-2xl font-aesthetic">Riskiyatul Khasanah, S.Pd</h4>
-                    <p class="text-sm italic text-gray-500">Putri dari Bapak Ghofur Nurochim & Ibu Nok Riskiyah</p>
-                </div>
+            <div id="timer" class="flex gap-4 mt-12 text-[#d4a373]">
+                <div class="flex flex-col"><span id="days" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase">Hari</span></div>
+                <div class="flex flex-col"><span id="hours" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase">Jam</span></div>
+                <div class="flex flex-col"><span id="minutes" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase">Menit</span></div>
             </div>
         </section>
 
-        <section class="py-20 px-4 text-center bg-white">
-            <h3 class="text-3xl font-aesthetic mb-6 text-[#d4a373]" data-aos="fade-up">Lokasi Acara</h3>
-            <div class="rounded-xl overflow-hidden shadow-lg border-4 border-white mb-6" data-aos="zoom-in">
+        <section class="py-20 px-4 text-center">
+            <h3 class="text-3xl font-aesthetic mb-6 text-[#d4a373]">Lokasi Acara</h3>
+            <div class="rounded-xl overflow-hidden shadow-lg border-4 border-white mb-6">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.000!2d106.845!3d-6.200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNTAnNDIuMCJF!5e0!3m2!1sid!2sid!4v123456789" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.81956135000001!3d-6.194741350000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f42100000001%3A0x27a5e84860f38096!2sGrand%20Indonesia!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
                     width="100%" 
                     height="250" 
                     style="border:0;" 
@@ -82,43 +64,54 @@
                     loading="lazy">
                 </iframe>
             </div>
-            <a href="https://goo.gl/maps/..." target="_blank" class="inline-block bg-[#d4a373] text-white px-8 py-3 rounded-full text-sm uppercase tracking-widest shadow-md hover:scale-105 transition-transform">Buka Petunjuk Jalan</a>
+            <a href="https://goo.gl/maps/..." target="_blank" class="bg-[#d4a373] text-white px-8 py-2 rounded-full inline-block uppercase text-xs tracking-widest">Petunjuk Jalan</a>
         </section>
     </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
-
+        AOS.init();
+        
+        // SLIDESHOW LOGIC
         const images = [
             'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200',
             'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200',
             'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200'
         ];
-        let currentIndex = 0;
-        const bgElement = document.getElementById('bg-slideshow');
-
-        function changeBackground() {
-            bgElement.style.backgroundImage = `url('${images[currentIndex]}')`;
-            currentIndex = (currentIndex + 1) % images.length;
+        let idx = 0;
+        function changeBg() {
+            const bg = document.getElementById('bg-slideshow');
+            if(bg) {
+                bg.style.backgroundImage = `url('${images[idx]}')`;
+                idx = (idx + 1) % images.length;
+            }
         }
-        changeBackground();
-        setInterval(changeBackground, 5000);
+        changeBg(); setInterval(changeBg, 5000);
 
         function bukaUndangan() {
             document.getElementById('sampul').classList.add('opened');
             document.getElementById('music-btn').classList.remove('hidden');
             document.body.style.overflow = 'auto';
-            document.getElementById('audio').play();
+            const audio = document.getElementById('audio');
+            audio.play().catch(e => console.log("Musik butuh interaksi user"));
         }
 
         function toggleMusic() {
-            const audio = document.getElementById('audio');
-            if (audio.paused) audio.play(); else audio.pause();
+            const a = document.getElementById('audio');
+            if (a.paused) a.play(); else a.pause();
         }
 
-        const targetDate = new Date("Mar 29, 2026 08:00:00").getTime();
+        // COUNTDOWN
+        const target = new Date("Mar 29, 2026 08:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
-            const diff = targetDate - now;
-            if (diff > 0
+            const diff = target - now;
+            if(diff > 0) {
+                document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
