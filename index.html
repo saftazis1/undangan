@@ -59,7 +59,9 @@
         <div data-aos="fade-up">
             <p class="uppercase tracking-widest text-xs mb-4">The Wedding Of</p>
             <h1 class="text-6xl font-aesthetic text-[#d4a373] my-6">Safta & Atul</h1>
-            <p class="italic mb-10 text-gray-400 text-lg text-center">Kepada Bapak/Ibu/Saudara/i <br> <span class="font-bold text-gray-700">Tamu Undangan</span></p>
+            <p class="italic mb-10 text-gray-400 text-lg text-center">Kepada Bapak/Ibu/Saudara/i <br> <span class="font-bold text-gray-700">Tamu Undangan</span>
+
+<span id="nama-tamu" class="font-bold text-gray-700">Tamu Undangan</span>
             <button onclick="bukaUndangan()" class="bg-[#d4a373] text-white px-10 py-3 rounded-full shadow-lg uppercase tracking-widest text-sm hover:bg-[#bc8a5f] transition-all">Buka Undangan</button>
         </div>
     </div>
@@ -202,6 +204,14 @@
                 document.getElementById('pesanTamu').value = "";
             }
         }
+        // Fungsi untuk mengambil nama dari link (URL)
+const urlParams = new URLSearchParams(window.location.search);
+const namaTamu = urlParams.get('to');
+
+if (namaTamu) {
+    // Mengganti teks "Tamu Undangan" dengan nama dari link
+    document.getElementById('nama-tamu').innerText = namaTamu;
+}
     </script>
 </body>
 </html>
