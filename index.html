@@ -45,11 +45,12 @@
                 <h2 class="text-5xl font-aesthetic text-[#d4a373]">Safta & Atul</h2>
                 <p class="mt-4 italic text-xl">29 Maret 2026</p>
             </div>
-            <div id="timer" class="flex gap-4 mt-12 text-[#d4a373]">
-                <div class="flex flex-col"><span id="days" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase">Hari</span></div>
-                <div class="flex flex-col"><span id="hours" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase">Jam</span></div>
-                <div class="flex flex-col"><span id="minutes" class="text-3xl font-bold">00</span><span class="text-[10px] uppercase">Menit</span></div>
-            </div>
+            <div id="timer" class="flex gap-4 mt-12 text-[#d4a373] justify-center">
+    <div class="flex flex-col text-center"><span id="days" class="text-2xl font-bold">00</span><span class="text-[10px] uppercase font-bold">Hari</span></div>
+    <div class="flex flex-col text-center"><span id="hours" class="text-2xl font-bold">00</span><span class="text-[10px] uppercase font-bold">Jam</span></div>
+    <div class="flex flex-col text-center"><span id="minutes" class="text-2xl font-bold">00</span><span class="text-[10px] uppercase font-bold">Menit</span></div>
+    <div class="flex flex-col text-center"><span id="seconds" class="text-2xl font-bold text-pink-600">00</span><span class="text-[10px] uppercase font-bold">Detik</span></div>
+</div>
         </section>
 
         <section class="py-20 px-8 text-center bg-white/50 border-y border-[#d4a373]/20">
@@ -110,15 +111,17 @@
         }
 
         const target = new Date("Mar 29, 2026 08:00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = target - now;
-            if(diff > 0) {
-                document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            }
-        }, 1000);
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = target - now;
+    if(diff > 0) {
+        document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        // Tambahkan baris di bawah ini
+        document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+    }
+}, 1000);
     </script>
 </body>
 </html>
