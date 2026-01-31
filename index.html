@@ -153,6 +153,93 @@
     </section>
 
     <!-- Gallery -->
+    <!-- Mempelai -->
+<section data-aos="fade-up" class="text-center">
+    <h3 class="text-3xl font-aesthetic mb-10 text-[#d4a373]">Mempelai</h3>
+
+    <div class="mb-10">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400"
+            class="w-40 h-40 mx-auto rounded-full mb-4 shadow-xl object-cover">
+        <h4 class="text-2xl font-aesthetic">M Safta Azis, S.Pd</h4>
+        <p class="text-sm italic text-gray-600">
+            Putra dari Bapak Indra Karmawan & Ibu Juwiyana
+        </p>
+    </div>
+
+    <div class="text-4xl font-aesthetic my-6 text-[#d4a373]">&</div>
+
+    <div>
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400"
+            class="w-40 h-40 mx-auto rounded-full mb-4 shadow-xl object-cover">
+        <h4 class="text-2xl font-aesthetic">Riskiyatul Khasanah, S.Pd</h4>
+        <p class="text-sm italic text-gray-600">
+            Putri dari Bapak Ghofur Nurochim & Ibu Nok Riskiyah
+        </p>
+    </div>
+</section>
+
+<!-- Lokasi -->
+<section data-aos="fade-up" class="text-center">
+    <h3 class="text-3xl font-aesthetic mb-6 text-[#d4a373]">Lokasi Acara</h3>
+
+    <div class="rounded-2xl overflow-hidden shadow-xl mb-6">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.887841126639!2d106.8335035!3d-6.4084534"
+            width="100%" height="260" style="border:0;" loading="lazy">
+        </iframe>
+    </div>
+
+    <a href="https://maps.app.goo.gl/GaRwo7CbZKdFFJss7" target="_blank"
+        class="bg-[#d4a373] text-white px-8 py-2 rounded-full uppercase text-xs tracking-widest shadow-md">
+        Petunjuk Jalan
+    </a>
+</section>
+
+<!-- RSVP -->
+<section data-aos="fade-up" class="text-center">
+    <h3 class="text-3xl font-aesthetic mb-4 text-[#d4a373]">Konfirmasi Kehadiran</h3>
+    <p class="mb-8 text-sm italic text-gray-600">
+        Mohon konfirmasi kehadiran Anda melalui WhatsApp
+    </p>
+
+    <a href="https://wa.me/6287888111537?text=Halo%20Safta%20&%20Atul,%20saya%20ingin%20konfirmasi%20kehadiran."
+        target="_blank"
+        class="inline-block bg-[#25D366] text-white px-10 py-3 rounded-full font-bold uppercase text-xs tracking-widest shadow-lg">
+        Konfirmasi via WhatsApp
+    </a>
+</section>
+
+<!-- Ucapan -->
+<section data-aos="fade-up">
+    <h3 class="text-3xl font-aesthetic mb-6 text-center text-[#d4a373]">
+        Ucapan & Doa
+    </h3>
+
+    <div class="bg-white/60 p-6 rounded-2xl mb-8">
+        <input id="namaTamu" type="text"
+            class="w-full p-3 rounded-lg mb-4 outline-none text-sm"
+            placeholder="Nama Anda">
+
+        <textarea id="pesanTamu"
+            class="w-full p-3 rounded-lg mb-4 h-24 outline-none text-sm"
+            placeholder="Tulis ucapan..."></textarea>
+
+        <button onclick="tambahPesan()"
+            class="w-full bg-[#d4a373] text-white py-3 rounded-lg uppercase text-xs tracking-widest">
+            Kirim Ucapan
+        </button>
+    </div>
+
+    <div id="daftarUcapan" class="space-y-4 max-h-80 overflow-y-auto">
+        <div class="bg-white/60 p-4 rounded-xl border-l-4 border-[#d4a373]">
+            <p class="font-bold text-[#d4a373] text-sm">Admin</p>
+            <p class="text-sm italic text-gray-600">
+                Selamat menempuh hidup baru Safta & Atul 🤍
+            </p>
+        </div>
+    </div>
+</section>
+
     <section>
         <h3 class="text-3xl font-aesthetic mb-8 text-center text-[#d4a373]">Momen Bahagia</h3>
         <div class="swiper mySwiper">
@@ -207,6 +294,27 @@ if (params.get('to')) {
     document.getElementById('nama-tamu').innerText = decodeURIComponent(params.get('to'));
 }
 </script>
+    <script>
+function tambahPesan() {
+    const nama = document.getElementById('namaTamu').value;
+    const pesan = document.getElementById('pesanTamu').value;
+    const list = document.getElementById('daftarUcapan');
+
+    if (!nama || !pesan) return;
+
+    const div = document.createElement('div');
+    div.className = "bg-white/60 p-4 rounded-xl border-l-4 border-[#d4a373]";
+    div.innerHTML = `
+        <p class="font-bold text-[#d4a373] text-sm">${nama}</p>
+        <p class="text-sm italic text-gray-600">${pesan}</p>
+    `;
+
+    list.prepend(div);
+    namaTamu.value = "";
+    pesanTamu.value = "";
+}
+</script>
+
 
 </body>
 </html>
