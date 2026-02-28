@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Undangan Pernikahan Safta & Atul</title>
 
 <!-- Tailwind -->
@@ -23,10 +23,23 @@
 .music-playing { animation: spin 6s linear infinite; }
 @keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
 
+/* ===== KUNCI LAYAR ANTI GOYANG & PUTIH ===== */
+html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden !important;
+    overscroll-behavior-y: none;
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #020617; /* Mencegah warna putih dasar */
+}
+
 body {
     font-family: 'Cormorant Garamond', serif;
-    overflow-x: hidden;
     background: radial-gradient(circle at top, #1e293b, #020617);
+    color: #f8fafc;
 }
 
 .font-aesthetic { font-family: 'Playfair Display', serif; }
